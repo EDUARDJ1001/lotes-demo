@@ -45,13 +45,19 @@ h1, h2 { font-weight: 500; margin: 0; line-height: 1.08; }
   padding: 96px 20px; text-align: center; color: #fff;
   background: linear-gradient(170deg, #6f8a86 0%, #3c5852 50%, #22362f 100%);
 }
-.hero-media { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.hero-media.missing { display: none; }
+/* Foto de portada con un acercamiento lento (sin él si el sistema pide reducir movimiento) */
+.hero-media {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 60%;
+  animation: acercar 24s ease-out both;
+}
+@keyframes acercar { from { transform: scale(1.12); } to { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .hero-media { animation: none; } }
+/* Más oscuro arriba: la foto tiene el cielo muy claro detrás del nombre y del título */
 .hero-shade {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(10, 20, 16, .55) 0%, rgba(10, 20, 16, .28) 35%, rgba(10, 20, 16, .32) 70%, rgba(10, 20, 16, .5) 100%);
+  background: linear-gradient(to bottom, rgba(10, 20, 16, .62) 0%, rgba(10, 20, 16, .42) 40%, rgba(10, 20, 16, .38) 70%, rgba(10, 20, 16, .55) 100%);
 }
-/* Logo en blanco sin fondo; una sombra suave lo separa del video cuando la toma es clara */
+.hero h1, .hero p { text-shadow: 0 2px 18px rgba(0, 0, 0, .35); }
 .logo { position: absolute; top: 18px; left: 20px; z-index: 2; display: block; }
 .logo { color: #fff; text-decoration: none; font-size: 1.1rem; font-weight: 600; letter-spacing: -.02em; }
 .hero-content { position: relative; max-width: 760px; display: flex; flex-direction: column; align-items: center; }

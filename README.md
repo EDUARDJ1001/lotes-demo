@@ -42,6 +42,8 @@ En `data/inventario.json` cada lote tiene un estado (`disponible`, `reservado`, 
 
 Las fotos de ejemplo están en `fotos/demo/`: 7 fotos de Wikimedia Commons, reducidas a 1280 px. El generador le asigna 3 a cada lote. Sus licencias son dominio público o CC BY / CC BY-SA, que piden dar crédito al autor; los créditos están en `creditos.html`, enlazada desde el pie del landing. Si se agregan o cambian fotos, hay que actualizar esa página.
 
+La foto de portada del landing es `media/hero.jpg` (la misma de *Loteamento Jardim Eldorado*, con su crédito en `creditos.html`). Tiene un acercamiento lento, que se desactiva si el sistema pide reducir movimiento.
+
 Para moverlo a otro terreno, cambiar `plano` y `coordenadas` en `js/config.js`.
 
 ## Miniaturas para compartir
