@@ -1,0 +1,872 @@
+{
+  "A-1": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "A-2": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "A-3": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "A-4": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "A-5": {
+    "estado": "reservado",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "A-6": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "A-7": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "A-8": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "A-9": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-1": {
+    "estado": "reservado",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-2": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-3": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-4": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-5": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-6": {
+    "estado": "reservado",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-7": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-8": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "B-9": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano al sur del proyecto, frente a la Calle 1.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-1": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-2": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-3": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-4": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-5": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-6": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-7": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-8": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-9": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-1": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-2": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-3": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-4": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-5": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-6": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-7": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-8": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-9": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-10": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-11": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-12": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-13": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-14": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-15": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-16": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-17": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "C-18": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-10": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-11": {
+    "estado": "reservado",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-12": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-13": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-14": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-15": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-16": {
+    "estado": "reservado",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-17": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "D-18": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano, a pocos metros del bulevar principal.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-1": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-2": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-3": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-4": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-5": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-6": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-7": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-8": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-9": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-1": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-2": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-3": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-4": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-5": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "L-1": {
+    "estado": "disponible",
+    "precio": 650000,
+    "descripcion": "Local comercial frente al bulevar, en la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/calle-lotificacion.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg"
+    ]
+  },
+  "L-2": {
+    "estado": "disponible",
+    "precio": 650000,
+    "descripcion": "Local comercial frente al bulevar, en la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/calle-lotificacion.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg"
+    ]
+  },
+  "L-3": {
+    "estado": "reservado",
+    "precio": 650000,
+    "descripcion": "Local comercial frente al bulevar, en la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/calle-lotificacion.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg"
+    ]
+  },
+  "L-4": {
+    "estado": "disponible",
+    "precio": 650000,
+    "descripcion": "Local comercial frente al bulevar, en la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/calle-lotificacion.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg"
+    ]
+  },
+  "E-10": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-11": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-12": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-13": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-14": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "E-15": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano junto al área verde.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-6": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-7": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-8": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-9": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-10": {
+    "estado": "reservado",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-11": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/arbol-lote.jpg",
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-12": {
+    "estado": "vendido",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/lotes-villa-flora.jpg",
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-13": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/lotes-jardim-eldorado.jpg",
+      "fotos/demo/terreno-wukari.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  },
+  "F-14": {
+    "estado": "disponible",
+    "precio": null,
+    "descripcion": "Lote plano cerca de la entrada del proyecto.",
+    "fotos": [
+      "fotos/demo/lote-goiania.jpg",
+      "fotos/demo/potrero-honduras.jpg",
+      "fotos/demo/calle-lotificacion.jpg"
+    ]
+  }
+}

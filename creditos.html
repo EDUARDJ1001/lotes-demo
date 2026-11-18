@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Créditos de fotos · Lotificación Demo</title>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap">
+  <link rel="stylesheet" href="css/landing.css">
+  <style>
+    .creditos { padding: 28px; }
+    .creditos h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.04em; color: var(--accent); }
+    .creditos p { color: var(--muted); line-height: 1.55; max-width: 70ch; }
+    .creditos ul { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: 14px; }
+    .creditos li { display: flex; gap: 16px; align-items: center; }
+    .creditos img { width: 160px; height: 110px; object-fit: cover; border-radius: 8px; flex: none; }
+    .creditos li div { display: flex; flex-direction: column; gap: 4px; font-size: .88rem; min-width: 0; overflow-wrap: anywhere; }
+    .creditos li span { color: var(--muted); font-size: .8rem; }
+    .creditos a { color: var(--accent); }
+    @media (max-width: 560px) { .creditos { padding: 20px; } .creditos img { width: 96px; height: 72px; } }
+  </style>
+</head>
+<body>
+  <main class="frame">
+    <section class="panel panel-light creditos">
+      <p class="eyebrow"><a href="./">Lotificación Demo</a></p>
+      <h1>Créditos de fotos</h1>
+      <p>Las fotos de los lotes son de ejemplo y no muestran el terreno del proyecto. Vienen de Wikimedia Commons y se usan según su licencia; aquí se reducen de tamaño, sin otros cambios.</p>
+      <ul>
+      <li>
+        <img src="fotos/demo/potrero-honduras.jpg" alt="" loading="lazy" width="160" height="110">
+        <div>
+          <a href="https://commons.wikimedia.org/wiki/File:HN078sMarcs_PasturGate.jpg" target="_blank" rel="noopener">HN078sMarcs PasturGate.jpg</a>
+          <span>Public domain</span>
+        </div>
+      </li>
+      <li>
+        <img src="fotos/demo/lotes-villa-flora.jpg" alt="" loading="lazy" width="160" height="110">
+        <div>
+          <a href="https://commons.wikimedia.org/wiki/File:Loteamento_Villa_Flora.jpg" target="_blank" rel="noopener">Loteamento Villa Flora.jpg</a>
+          <span>Autor: Christopher Krause · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></span>
+        </div>
+      </li>
+      <li>
+        <img src="fotos/demo/lote-goiania.jpg" alt="" loading="lazy" width="160" height="110">
+        <div>
+          <a href="https://commons.wikimedia.org/wiki/File:Lote_baldio_na_VS_10,_Vale_dos_Sonhos,_Goi%C3%A2nia,_janeiro_de_2017.jpg" target="_blank" rel="noopener">Lote baldio na VS 10, Vale dos Sonhos, Goiânia, janeiro de 2017.jpg</a>
+          <span>Autor: Fronteira · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></span>
+        </div>
+      </li>
+      <li>
+        <img src="fotos/demo/arbol-lote.jpg" alt="" loading="lazy" width="160" height="110">
+        <div>
+          <a href="https://commons.wikimedia.org/wiki/File:%C3%81rvore_Loteamento_Lago_Azul._-_panoramio.jpg" target="_blank" rel="noopener">Árvore Loteamento Lago Azul. - panoramio.jpg</a>
+          <span>Autor: joao batista Shimoto · <a href="https://creativecommons.org/licenses/by-sa/3.0" target="_blank" rel="noopener">CC BY-SA 3.0</a></span>
+        </div>
+      </li>
+      <li>
+        <img src="fotos/demo/calle-lotificacion.jpg" alt="" loading="lazy" width="160" height="110">
+        <div>
+          <a href="https://commons.wikimedia.org/wiki/File:Bridgewater_Point_subdivision_construction_in_Morristown,_Tennessee.jpg" target="_blank" rel="noopener">Bridgewater Point subdivision construction in Morristown, Tennessee.jpg</a>
+          <span>Autor: AppalachianCentrist · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></span>
+        </div>
+      </li>
+      <li>
+        <img src="fotos/demo/lotes-jardim-eldorado.jpg" alt="" loading="lazy" width="160" height="110">
+        <div>
+          <a href="https://commons.wikimedia.org/wiki/File:Loteamento_Jardim_Eldorado.jpg" target="_blank" rel="noopener">Loteamento Jardim Eldorado.jpg</a>
+          <span>Autor: Hallel · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></span>
+        </div>
+      </li>
+      <li>
+        <img src="fotos/demo/terreno-wukari.jpg" alt="" loading="lazy" width="160" height="110">
+        <div>
+          <a href="https://commons.wikimedia.org/wiki/File:An_empty_plot_of_land_in_GRA_Wukari.jpg" target="_blank" rel="noopener">An empty plot of land in GRA Wukari.jpg</a>
+          <span>Autor: Kambai Akau · <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a></span>
+        </div>
+      </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
