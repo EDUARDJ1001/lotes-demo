@@ -59,6 +59,7 @@ async function init() {
   drawLots();
   drawLegend();
   setupPanel();
+  setupUbicacion();
   abrirDesdeUrl();
 }
 
@@ -68,7 +69,7 @@ function abrirDesdeUrl() {
   const l = lotes.find(x => x.id === id);
   if (!l) return;
   map.setView(l.geo(centroid(l.poligono)), 19.5, { animate: false });
-  if (l.disponible) seleccionar(l);
+  if (l.disponible) seleccionar(l); else verEstado(l);
 }
 
 // ---------- Mapa base ----------
@@ -154,20 +155,135 @@ function drawLots() {
   for (const l of lotes) {
     // Reservado: naranja; no disponible: gris claro; vendido (o cualquier otro estado): rojo, con el estado escrito sobre el lote
     const cls = l.disponible ? 'available' : { reservado: 'reserved', no_disponible: 'unavailable' }[l.estado] || 'sold';
-    const capa = L.polygon(l.poligono.map(l.geo), { className: `lot ${cls}`, interactive: l.disponible, smoothFactor: 0 }).addTo(map);
-    l.node = capa.getElement();
-    if (l.disponible) {
-      l.node.setAttribute('tabindex', '0');
-      l.node.setAttribute('role', 'button');
-      l.node.setAttribute('aria-label', `${l.tipo === 'local' ? 'Local' : 'Lote'} ${l.id}, ${fmt(l.area_m2)} m², disponible`);
-      l.node.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clicLote(l); } });
-      capa.on('click', () => clicLote(l));
-      capa.on('mouseover mousemove', e => showTip(l, e.originalEvent));
-      capa.on('mouseout', hideTip);
-    }
+    // Todos se pueden abrir: los disponibles con su ficha completa; los demás solo con fotos y estado (verEstado)
+    const capa = L.polygon(l.poligono.map(l.geo), { className: `lot ${cls}`, smoothFactor: 0 }).addTo(map);
     const estado = { reserved: 'Reservado', sold: 'Vendido', unavailable: 'No disponible' }[cls];
+    l.estadoTexto = estado || 'Disponible';
+    l.node = capa.getElement();
+    l.node.setAttribute('tabindex', '0');
+    l.node.setAttribute('role', 'button');
+    l.node.setAttribute('aria-label', `${l.tipo === 'local' ? 'Local' : 'Lote'} ${l.id}, ${l.disponible ? `${fmt(l.area_m2)} m², disponible` : estado.toLowerCase()}`);
+    l.node.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); clicLote(l); } });
+    capa.on('click', () => clicLote(l));
+    capa.on('mouseover mousemove', e => showTip(l, e.originalEvent));
+    capa.on('mouseout', hideTip);
     etiqueta(l.geo(centroid(l.poligono)), `<span>${l.id}${estado ? `<small>${estado}</small>` : ''}</span>`, `lot-label ${cls}`);
   }
+}
+
+// ---------- Mi ubicación (GPS del teléfono) ----------
+// Punto azul con su margen de error y el lote donde está la persona. La ubicación no sale del teléfono.
+// [lat, lng] -> metros del plano: lo inverso de transformacion()
+const aPlano = G => ([lat, lng]) => {
+  const rad = G.rotacion * Math.PI / 180, n = (lat - G.lat) * M_LAT, e = (lng - G.lng) * M_LNG;
+  return [G.origen[0] + e * Math.cos(rad) + n * Math.sin(rad), G.origen[1] - e * Math.sin(rad) + n * Math.cos(rad)];
+};
+const dentro = ([x, y], poly) => {
+  let c = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const [xi, yi] = poly[i], [xj, yj] = poly[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c;
+  }
+  return c;
+};
+const distBorde = ([x, y], poly) => Math.min(...poly.map((a, i) => {
+  const b = poly[(i + 1) % poly.length], L2 = (b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2;
+  const t = Math.max(0, Math.min(1, ((x - a[0]) * (b[0] - a[0]) + (y - a[1]) * (b[1] - a[1])) / L2));
+  return Math.hypot(x - a[0] - t * (b[0] - a[0]), y - a[1] - t * (b[1] - a[1]));
+}));
+
+function setupUbicacion() {
+  const btn = document.getElementById('gps-btn'), chip = document.getElementById('gps-estado');
+  const plano1 = aPlano(GEO), plano2 = CONFIG.plano2 ? aPlano(CONFIG.plano2) : null;
+  let vigilancia = null, siguiendo = false, primera = true, punto = null, circulo = null, aqui = null;
+
+  const mostrarChip = (html, clic = null) => {
+    chip.innerHTML = html;
+    chip.hidden = !html;
+    chip.classList.toggle('clic', !!clic);
+    chip.onclick = clic;
+  };
+  const estadoBtn = e => { btn.dataset.estado = e; btn.setAttribute('aria-pressed', e !== 'apagado'); };
+  const marcar = l => {
+    if (aqui === l) return;
+    aqui?.node.classList.remove('aqui');
+    aqui = l;
+    l?.node.classList.add('aqui');
+  };
+
+  function apagar() {
+    if (vigilancia != null) navigator.geolocation.clearWatch(vigilancia);
+    vigilancia = null; siguiendo = false; primera = true;
+    punto?.remove(); circulo?.remove(); punto = circulo = null;
+    marcar(null);
+    mostrarChip('');
+    estadoBtn('apagado');
+  }
+
+  function posicion(p) {
+    const { latitude: lat, longitude: lng, accuracy, heading, speed } = p.coords;
+    const ll = [lat, lng];
+    if (!punto) {
+      circulo = L.circle(ll, { radius: accuracy, className: 'gps-precision', interactive: false }).addTo(map);
+      punto = L.marker(ll, { icon: L.divIcon({ className: 'gps-punto', html: '<i class="rumbo"></i><b></b>', iconSize: [22, 22] }), interactive: false, keyboard: false, zIndexOffset: 1000 }).addTo(map);
+    } else { punto.setLatLng(ll); circulo.setLatLng(ll).setRadius(accuracy); }
+    // Rumbo del GPS (solo cuando se camina; parado no lo da)
+    const conRumbo = heading != null && !Number.isNaN(heading) && speed > 0.5;
+    punto.getElement()?.style.setProperty('--rumbo', `${conRumbo ? heading : 0}deg`);
+    punto.getElement()?.classList.toggle('con-rumbo', conRumbo);
+    estadoBtn(siguiendo ? 'siguiendo' : 'activo');
+
+    // ¿En qué lote está? El punto puede caer en un lote vecino si el margen de error llega a su borde
+    const l = lotes.find(x => dentro((x.sector ? plano2 : plano1)(ll), x.poligono));
+    marcar(l || null);
+    const margen = `± ${Math.round(accuracy)} m`;
+    if (l) {
+      const seguro = distBorde((l.sector ? plano2 : plano1)(ll), l.poligono) >= accuracy / 2;
+      mostrarChip(`<b>${seguro ? 'Estás en' : 'Probablemente en'} ${l.nombre} · ${l.grupo}</b><span>${l.estadoTexto} · ${margen} · Ver ficha</span>`,
+        () => clicLote(l));
+    } else if (map.options.maxBounds.contains(ll)) {
+      const d = map.distance(ll, home.getCenter());
+      mostrarChip(home.pad(0.05).contains(ll)
+        ? `<b>Fuera de los lotes</b><span>En la calle o en un área común · ${margen}</span>`
+        : `<b>A ${d < 1000 ? `${Math.round(d)} m` : `${fmt(d / 1000, 1)} km`} del proyecto</b><span>${margen} · Toca para ver el plano</span>`,
+        home.pad(0.05).contains(ll) ? null : () => { siguiendo = false; estadoBtn('activo'); map.flyToBounds(home, { padding: [24, 24], duration: .8 }); });
+    } else {
+      const d = map.distance(ll, home.getCenter()) / 1000;
+      mostrarChip(`<b>Estás a ${fmt(d, d < 10 ? 1 : 0)} km del proyecto</b><span>El punto se verá al llegar a la zona</span>`);
+    }
+
+    const enMapa = map.options.maxBounds.contains(ll);
+    if (primera && enMapa) { siguiendo = true; estadoBtn('siguiendo'); map.flyTo(ll, Math.max(map.getZoom(), 19), { duration: .8 }); }
+    else if (siguiendo && enMapa && !map.getBounds().pad(-0.25).contains(ll)) map.panTo(ll, { animate: true });
+    primera = false;
+  }
+
+  function fallo(e) {
+    const txt = {
+      1: 'Sin permiso de ubicación. Actívalo para este sitio en los ajustes del navegador.',
+      2: 'No se pudo obtener la ubicación. Revisa que el GPS esté encendido.',
+      3: 'La ubicación tarda en llegar. Prueba al aire libre.',
+    }[e.code] || 'No se pudo obtener la ubicación.';
+    if (e.code === 1) apagar();
+    mostrarChip(`<b>${txt}</b>`, () => mostrarChip(''));
+  }
+
+  btn.addEventListener('click', () => {
+    if (!('geolocation' in navigator) || !window.isSecureContext) {
+      return mostrarChip('<b>Este navegador no permite usar la ubicación.</b>', () => mostrarChip(''));
+    }
+    if (vigilancia == null) {
+      estadoBtn('buscando');
+      mostrarChip('<b>Buscando tu ubicación…</b><span>Acepta el permiso si el navegador lo pide</span>');
+      vigilancia = navigator.geolocation.watchPosition(posicion, fallo, { enableHighAccuracy: true, maximumAge: 3000, timeout: 30000 });
+    } else if (!siguiendo && punto) { // ya activo: vuelve a centrar en el punto
+      siguiendo = true; estadoBtn('siguiendo');
+      map.flyTo(punto.getLatLng(), Math.max(map.getZoom(), 19), { duration: .6 });
+    } else apagar();
+  });
+  // Al mover el mapa a mano deja de seguir el punto (el botón lo vuelve a centrar)
+  map.on('dragstart', () => { if (siguiendo) { siguiendo = false; estadoBtn('activo'); } });
+  estadoBtn('apagado');
 }
 
 function etiqueta(latlng, html, className) {
@@ -230,6 +346,10 @@ const vecinosLibres = () => new Set(seleccion.flatMap(s => [...s.vecinos]).filte
 // Fuera del modo combinar, un clic abre ese lote solo; dentro, lo agrega o lo quita de la cotización
 function clicLote(l) {
   hideTip();
+  if (!l.disponible) {
+    if (combinando && !panel.hidden) return avisar(`El lote ${l.id} no se puede cotizar: ${l.estadoTexto.toLowerCase()}.`);
+    return verEstado(l);
+  }
   if (!combinando || panel.hidden) return seleccionar(l);
   if (seleccion.includes(l)) return quitar(l);
   if (!vecinosLibres().has(l)) {
@@ -245,6 +365,26 @@ function seleccionar(l) {
   combinando = false;
   renderPanel();
   panel.scrollTop = 0;
+}
+
+// Vendido, reservado o no disponible: ficha corta, solo fotos y estado (sin precio, medidas ni cotizador)
+function verEstado(l) {
+  closePanel();
+  l.node.classList.add('selected');
+  document.getElementById('p-bloque').textContent = l.grupo;
+  document.getElementById('p-titulo').textContent = l.nombre;
+  ponerEstado(l);
+  panel.classList.add('solo-estado');
+  document.getElementById('gallery').hidden = false;
+  renderGallery(l);
+  panel.hidden = false;
+  panel.scrollTop = 0;
+}
+
+function ponerEstado(l) {
+  const badge = document.getElementById('p-estado');
+  badge.textContent = l.estadoTexto;
+  badge.dataset.estado = l.estado;
 }
 
 // Quitar un lote no puede dejar la cotización partida: de A-1, A-2 y A-3 no se puede quitar A-2
@@ -266,14 +406,15 @@ function avisar(texto, error = true) {
 function renderPanel() {
   const sel = ordenar(seleccion), uno = sel.length === 1 ? sel[0] : null;
   const vecinos = vecinosLibres();
-  for (const l of lotes) {
-    if (!l.disponible) continue;
+  for (const l of lotes) { // también los no disponibles: puede venir de la ficha corta de uno de ellos
     l.node.classList.toggle('selected', sel.includes(l));
     l.node.classList.toggle('vecino', combinando && vecinos.has(l));
   }
   const m2 = suma(sel, l => l.area_m2), vrs = suma(sel, l => l.area_vrs2), total = suma(sel, precioLote);
   const $ = id => document.getElementById(id);
 
+  panel.classList.remove('solo-estado');
+  ponerEstado(sel[0]);
   $('p-bloque').textContent = nombreGrupo(sel);
   $('p-titulo').textContent = uno ? uno.nombre : `${sel.length} lotes juntos`;
   $('p-area').textContent = `${fmt(m2)} m²`;
@@ -368,7 +509,7 @@ function closePanel() {
   panel.hidden = true;
   seleccion = [];
   combinando = false;
-  panel.classList.remove('combinando');
+  panel.classList.remove('combinando', 'solo-estado');
   lotes.forEach(l => l.node?.classList.remove('selected', 'vecino'));
   return true;
 }
@@ -467,7 +608,8 @@ function setupTouch() {
 
 function showTip(l, e) {
   const r = wrap.getBoundingClientRect();
-  tooltip.textContent = !combinando || panel.hidden ? `Lote ${l.id} · ${fmt(l.area_m2)} m²`
+  tooltip.textContent = !l.disponible ? `Lote ${l.id} · ${l.estadoTexto}`
+    : !combinando || panel.hidden ? `Lote ${l.id} · ${fmt(l.area_m2)} m²`
     : seleccion.includes(l) ? `Quitar lote ${l.id}`
     : vecinosLibres().has(l) ? `Agregar lote ${l.id} · ${dinero(precioLote(l))}`
     : `Lote ${l.id} · no es vecino`;

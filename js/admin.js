@@ -29,12 +29,42 @@ async function entrar(session) {
   if (session?.user.id === sesionActual) return; // onAuthStateChange también avisa al cargar
   sesionActual = session?.user.id || null;
   $('btn-salir').hidden = !session;
+  $('btn-menu').hidden = true;
   if (!session) return mostrar('login');
   const { data: esAdmin } = await sb.rpc('es_admin');
   if (!esAdmin) return mostrar('sin-permiso');
   mostrar('editor');
+  $('btn-menu').hidden = false;
   await cargar();
+  irA();
 }
+
+// ---------- Secciones (barra lateral): #disponibilidad, #contabilidad/resumen, #contabilidad/pagos… ----------
+function irA() {
+  let vista = location.hash.slice(1) || 'disponibilidad';
+  if (!document.querySelector(`#sidebar a[data-vista="${vista}"]`)) vista = 'disponibilidad';
+  const conta = vista.startsWith('contabilidad/');
+  $('vista-disponibilidad').hidden = conta;
+  $('vista-contabilidad').hidden = !conta;
+  document.querySelectorAll('#sidebar a').forEach(a => {
+    const on = a.dataset.vista === vista;
+    a.classList.toggle('on', on);
+    if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+  });
+  menu(false);
+  window.scrollTo(0, 0);
+  if (conta) window.abrirContabilidad(vista.split('/')[1]); // js/contabilidad.js
+}
+window.addEventListener('hashchange', () => { if (!$('editor').hidden) irA(); });
+
+// En celular la barra lateral es un menú que se abre con ☰
+function menu(abrir) {
+  $('sidebar').classList.toggle('abierta', abrir);
+  $('side-fondo').hidden = !abrir;
+  $('btn-menu').setAttribute('aria-expanded', abrir);
+}
+$('btn-menu').addEventListener('click', () => menu(!$('sidebar').classList.contains('abierta')));
+$('side-fondo').addEventListener('click', () => menu(false));
 
 $('login').addEventListener('submit', async e => {
   e.preventDefault();
@@ -74,9 +104,9 @@ async function cargar() {
 }
 
 // ---------- Tarifa general (precio por vara²) ----------
-
-let precioVara = CONFIG.precioVara, tarifaEditable = false;
 const dinero = n => `${CONFIG.moneda} ${Number(n).toLocaleString('es-HN', { maximumFractionDigits: 0 })}`;
+let precioVara = CONFIG.precioVara, tarifaEditable = false;
+
 document.querySelectorAll('.tarifa .moneda').forEach(m => { m.textContent = CONFIG.moneda; });
 
 function pintarTarifa() {
@@ -88,9 +118,18 @@ function pintarTarifa() {
     : 'Para editarla, ejecuta supabase/ajustes.sql en el SQL Editor de Supabase.';
 }
 
+// Placeholder del precio de cada lote: el precio automático con la tarifa actual
+const precioAuto = lote => `Automático: ≈ ${dinero(Math.round(lote.area_vrs2 * precioVara))}`;
+function actualizarPlaceholders() {
+  document.querySelectorAll('#lotes .lote').forEach(li => {
+    const lote = lotes.find(l => l.id === li.dataset.id);
+    if (lote) li.querySelector('input[name=precio]').placeholder = precioAuto(lote);
+  });
+}
+
 $('tarifa').addEventListener('submit', async e => {
   e.preventDefault();
-  const form = e.target, valor = Number(form.precio_vara.value), boton = form.querySelector('button');
+  const form = e.target, boton = form.querySelector('button'), valor = Number(form.precio_vara.value);
   if (!(valor > 0)) return aviso('La tarifa debe ser mayor que cero.', true);
   boton.disabled = true;
   const { data, error } = await sb.from('ajustes').update({ precio_vara: valor }).eq('id', 1).select('precio_vara').single();
@@ -99,7 +138,7 @@ $('tarifa').addEventListener('submit', async e => {
   precioVara = Number(data.precio_vara);
   aviso(`Tarifa guardada: ${dinero(precioVara)} por vara²`);
   pintarTarifa();
-  pintar(); // los lotes sin precio muestran el nuevo precio automático
+  actualizarPlaceholders();
 });
 
 function pintar() {
@@ -117,6 +156,7 @@ function fila(lote) {
   const li = $('tpl-lote').content.firstElementChild.cloneNode(true);
   const toggle = li.querySelector('.lote-toggle'), body = li.querySelector('.lote-body'), estado = li.querySelector('.estado');
   li.dataset.estado = lote.estado;
+  li.dataset.id = lote.id;
   li.querySelector('.lote-id').textContent = lote.id;
   li.querySelector('.lote-area').textContent = `${fmt(lote.area_m2)} m² · ${fmt(lote.area_vrs2)} vrs²`;
   li.querySelector('.moneda').textContent = CONFIG.moneda;
@@ -135,8 +175,7 @@ function fila(lote) {
   });
 
   body.precio.value = lote.precio ?? '';
-  // Vacío = precio automático con la tarifa general
-  body.precio.placeholder = `Automático: ≈ ${dinero(Math.round(lote.area_vrs2 * precioVara))}`;
+  body.precio.placeholder = precioAuto(lote); // vacío = precio automático con la tarifa general
   body.medidas.value = lote.medidas ?? '';
   body.descripcion.value = lote.descripcion;
   body.addEventListener('submit', async e => {

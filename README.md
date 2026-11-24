@@ -54,6 +54,22 @@ Para moverlo a otro terreno, cambiar `plano` y `coordenadas` en `js/config.js`.
 node tools/og-lotes.mjs
 ```
 
+## Mapa: ficha corta y Mi ubicación
+
+- Los lotes vendidos, reservados y no disponibles también abren ficha, pero corta: fotos, bloque y estado, sin precio ni cotizador.
+- El botón ◎ (arriba del + y −) pide permiso de ubicación y muestra un punto azul con el margen de error del GPS y una flecha hacia donde se camina. El lote donde está la persona se marca en azul y un aviso abajo dice "Estás en Lote 7 · Bloque B"; al tocarlo se abre la ficha. Fuera de los lotes dice si se está en la calle o a qué distancia queda el proyecto. Solo funciona sobre HTTPS (Vercel) o en localhost, y la ubicación no sale del teléfono. Como el terreno de la demo es de ejemplo, fuera de La Lima siempre dirá a cuántos kilómetros queda.
+
+## Panel de administración — `/admin`
+
+Tiene una barra lateral (en celular, un menú ☰) con dos partes:
+
+- **Disponibilidad**: tarifa general por vara² y lista de lotes (estado, precio, medidas, descripción y fotos).
+- **Contabilidad** (privada, solo administradores): Resumen, Plano de ventas, Cuentas por cobrar, Clientes, Ventas (contado o prima y cuotas), Pagos recibidos, Gastos, Banco y Exportar (PDF de resumen, ingresos y gastos, y CSV para Excel). Al registrar una venta, sus lotes pasan a "vendido" en el mapa público.
+
+Para instalar la contabilidad en una base que ya existe, ejecutar `supabase/contabilidad.sql` en el SQL Editor (después de `ajustes.sql`). Se puede repetir sin perder datos.
+
+`supabase/reiniciar.sql` también carga **contabilidad de ejemplo**: 9 clientes ficticios que compraron los 12 lotes vendidos (de contado y a cuotas; pagados, al día y atrasados), sus pagos, 8 gastos del proyecto y un saldo inicial de L 150,000. Las fechas son relativas al día en que se ejecuta, así que los estados se mantienen cada vez que se reinicia.
+
 ## Supabase
 
 Para montar el proyecto de Supabase, en el SQL Editor:
